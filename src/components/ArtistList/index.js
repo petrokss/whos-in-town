@@ -11,6 +11,8 @@ import ArtistInfo from './ArtistInfo';
 import EventList from './EventList';
 import EventInfo from './EventList/EventInfo';
 import Favorites from './Favorites';
+import ArtistNotFound from './ArtistNotFound';
+import ArtistSpinner from './ArtistSpinner';
 
 const ArtistList = () => {
   const [searchArtist, setSearchArtist] = React.useState('');
@@ -23,7 +25,6 @@ const ArtistList = () => {
   const [favoriteEvents, setFavoriteEvents] = React.useState(() =>
     getLocalStorageData('favoriteEvents', [])
   );
-  console.log(favoriteEvents);
   const {
     data: artist,
     error: artistsError,
@@ -89,6 +90,8 @@ const ArtistList = () => {
             onChange={(vals) => handleChangeInput(vals)}
             value={searchArtist}
           />
+          {artist === '' && <ArtistNotFound />}
+          {isArtistsLoading && <ArtistSpinner />}
           {artist && <ArtistInfo data={artist} isLoading={isArtistsLoading} />}
           {events && (
             <EventList
