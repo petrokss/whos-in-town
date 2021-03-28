@@ -1,7 +1,7 @@
 export const getLocalStorageData = (key, defaultValue) => {
   try {
     const result = localStorage.getItem(key);
-    return JSON.parse(result);
+    return JSON.parse(result) ?? defaultValue;
   } catch (err) {
     return defaultValue;
   }
