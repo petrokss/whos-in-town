@@ -63,7 +63,11 @@ const EventInfo = ({
         </HStack>
       ))}
       {venue.longitude && venue.latitude && (
-        <EventMap longitude={venue.longitude} latitude={venue.latitude} />
+        <EventMap
+          key={venue.longitude + venue.latitude}
+          longitude={venue.longitude}
+          latitude={venue.latitude}
+        />
       )}
     </VStack>
   );

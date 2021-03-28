@@ -1,29 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '@chakra-ui/react';
-import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
-const Map = ReactMapboxGl({
-  accessToken: process.env.REACT_APP_MAPBOX_TOKEN,
-});
+import { Box, Text } from '@chakra-ui/react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const EventMap = ({ longitude, latitude }) => {
-  const coordinates = [longitude, latitude];
+  const position = [+latitude, +longitude];
   return (
-    <Map
-      // eslint-disable-next-line react/style-prop-object
-      style="mapbox://styles/mapbox/streets-v9"
-      containerStyle={{
-        height: '200px',
-        width: '100%',
-      }}
-      center={coordinates}
-    >
-      <Marker anchor="bottom" coordinates={coordinates}>
-        <Text fontSize="x-large">📍</Text>
-      </Marker>
-    </Map>
+    <Box w="100%" h="200px">
+      <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Text fontSize="x-large">📍</Text>
+        </Marker>
+      </MapContainer>
+    </Box>
   );
 };
 
