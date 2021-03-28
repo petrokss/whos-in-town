@@ -2,10 +2,7 @@ import React from 'react';
 import { useDebounce } from 'use-debounce';
 import { Box, VStack } from '@chakra-ui/react';
 import { useArtist, useEvents } from '../api/hooks';
-import {
-  getLocalStorageData,
-  saveLocalStorage,
-} from '../utils/localStorage';
+import { getLocalStorageData, saveLocalStorage } from '../utils/localStorage';
 import SearchInput from './artists/SearchArtistInput';
 import ArtistInfo from './artists/ArtistInfo';
 import EventList from './events/EventList';
@@ -25,16 +22,8 @@ const App = () => {
   const [favoriteEvents, setFavoriteEvents] = React.useState(() =>
     getLocalStorageData('favoriteEvents', [])
   );
-  const {
-    data: artist,
-    error: artistsError,
-    isLoading: isArtistsLoading,
-  } = useArtist(searchValue);
-  const {
-    data: events,
-    error: eventsError,
-    isLoading: isEventsLoading,
-  } = useEvents(searchValue);
+  const { data: artist, isLoading: isArtistsLoading } = useArtist(searchValue);
+  const { data: events } = useEvents(searchValue);
 
   React.useEffect(() => {
     if (!isEventFromFavorites) {
@@ -42,6 +31,7 @@ const App = () => {
     } else {
       setEventFromFavorites(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   const handleChangeInput = (e) => {
@@ -98,7 +88,6 @@ const App = () => {
               events={events}
               onEventSelect={setSelectedEventId}
               selectedEventId={selectedEventId}
-              favoriteEvents={favoriteEvents}
             />
           )}
         </VStack>

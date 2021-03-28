@@ -12,6 +12,7 @@ const EventMap = ({ longitude, latitude }) => {
   const coordinates = [longitude, latitude];
   return (
     <Map
+      // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/mapbox/streets-v9"
       containerStyle={{
         height: '200px',

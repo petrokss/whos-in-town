@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 import { Stack } from '@chakra-ui/react';
 import EventItem from './EventListItem';
 
-const EventList = ({
-  events,
-  onEventSelect,
-  selectedEventId,
-  favoriteEvents,
-}) => {
+const EventList = ({ events, onEventSelect, selectedEventId }) => {
   return (
     <Stack spacing={2}>
       {events.map((event) => (
@@ -25,7 +20,6 @@ const EventList = ({
 
 EventList.propTypes = {
   events: PropTypes.arrayOf(PropTypes.object),
-  favoriteEvents: PropTypes.arrayOf(PropTypes.object),
   onEventSelect: PropTypes.func,
   selectedEventId: PropTypes.string,
 };
