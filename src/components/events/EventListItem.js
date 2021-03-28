@@ -1,16 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import format from 'date-fns/format';
-import { Text, Spacer, Button } from '@chakra-ui/react';
-
-const EllipsisText = (props) => (
-  <Text
-    overflow="hidden"
-    textOverflow="ellipsis"
-    whiteSpace="nowrap"
-    {...props}
-  />
-);
+import { Spacer, Button } from '@chakra-ui/react';
+import EllipsisText from '../ui/EllipsisText';
 
 const EventItem = ({ event, onClick, isSelected }) => (
   <Button

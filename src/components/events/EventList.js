@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Stack } from '@chakra-ui/react';
-import EventItem from './EventItem';
+import EventItem from './EventListItem';
 
 const EventList = ({
   events,

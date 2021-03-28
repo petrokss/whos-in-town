@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ChakraProvider } from '@chakra-ui/react';
-import ArtistList from './components/ArtistList';
+import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ChakraProvider>
-        <ArtistList />
+        <App />
       </ChakraProvider>
     </QueryClientProvider>
   </React.StrictMode>,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner, Center } from '@chakra-ui/react';
 
-const ArtistSpinner = () => (
+const LoadingSpinner = () => (
   <Center>
     <Spinner
       thickness="2px"
@@ -13,4 +13,4 @@ const ArtistSpinner = () => (
   </Center>
 );
 
-export default ArtistSpinner;
+export default LoadingSpinner;

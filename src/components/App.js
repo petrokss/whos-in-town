@@ -1,20 +1,20 @@
 import React from 'react';
 import { useDebounce } from 'use-debounce';
 import { Box, VStack } from '@chakra-ui/react';
-import { useArtist, useEvents } from '../../api/hooks';
+import { useArtist, useEvents } from '../api/hooks';
 import {
   getLocalStorageData,
   saveLocalStorage,
-} from '../../utils/localStorage';
-import SearchInput from './SearchArtistInput';
-import ArtistInfo from './ArtistInfo';
-import EventList from './EventList';
-import EventInfo from './EventList/EventInfo';
-import Favorites from './Favorites';
-import ArtistNotFound from './ArtistNotFound';
-import ArtistSpinner from './ArtistSpinner';
+} from '../utils/localStorage';
+import SearchInput from './artists/SearchArtistInput';
+import ArtistInfo from './artists/ArtistInfo';
+import EventList from './events/EventList';
+import EventInfo from './events/EventInfo';
+import Favorites from './favorites/Favorites';
+import ArtistNotFound from './artists/ArtistNotFound';
+import ArtistSpinner from './ui/Spinner';
 
-const ArtistList = () => {
+const App = () => {
   const [searchArtist, setSearchArtist] = React.useState('');
   const [isEventFromFavorites, setEventFromFavorites] = React.useState(false);
   const [searchValue] = useDebounce(
@@ -124,4 +124,4 @@ const ArtistList = () => {
   );
 };
 
-export default ArtistList;
+export default App;
