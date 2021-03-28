@@ -11,6 +11,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import EventMap from './EventMap';
 
 const EventInfo = ({
   event,
@@ -61,6 +62,9 @@ const EventInfo = ({
           </Badge>
         </HStack>
       ))}
+      {venue.longitude && venue.latitude && (
+        <EventMap longitude={venue.longitude} latitude={venue.latitude} />
+      )}
     </VStack>
   );
 };
